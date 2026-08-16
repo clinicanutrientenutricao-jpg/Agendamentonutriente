@@ -33,13 +33,23 @@ const Index = () => {
   return (
     <Layout showAdminButton>
       <div className="space-y-8">
-        <div className="text-center space-y-3">
-          <h1 className="text-4xl font-bold text-foreground tracking-tight">
-            Área de Fluxos
-          </h1>
-          <p className="text-lg text-muted-foreground">
-            Escolha uma das opções abaixo para continuar
-          </p>
+        <div className="text-center space-y-4">
+          <div className="flex justify-center">
+            <img
+              src="https://s3.alvimautomacoes.com/imagens/Logos/logo%20-%20co%CC%81pia.png"
+              alt="Logo NutriEnte Nutrição"
+              className="h-20 w-auto max-w-[240px] object-contain drop-shadow-sm"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+          <div className="space-y-2">
+            <h1 className="text-4xl font-bold text-foreground tracking-tight">
+              Área de Fluxos
+            </h1>
+            <p className="text-lg text-muted-foreground">
+              Escolha uma das opções abaixo para continuar
+            </p>
+          </div>
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">

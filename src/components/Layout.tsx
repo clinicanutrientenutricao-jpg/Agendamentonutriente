@@ -36,7 +36,7 @@ export const Layout = ({ children, showBackButton = false, showAdminButton = fal
     <div className="min-h-screen bg-background flex flex-col">
       <header className="border-b border-border bg-card">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             {showBackButton && (
               <Button
                 variant="ghost"
@@ -47,9 +47,20 @@ export const Layout = ({ children, showBackButton = false, showAdminButton = fal
                 <ArrowLeft className="h-5 w-5" />
               </Button>
             )}
-            <span className="text-2xl font-bold tracking-tight text-foreground">
-              NutriEnte Nutrição
-            </span>
+            <div 
+              className="flex items-center gap-3 cursor-pointer select-none"
+              onClick={() => navigate('/')}
+            >
+              <img
+                src="https://s3.alvimautomacoes.com/imagens/Logos/logo%20-%20co%CC%81pia.png"
+                alt="Logo NutriEnte Nutrição"
+                className="h-9 w-auto max-w-[120px] object-contain"
+                referrerPolicy="no-referrer"
+              />
+              <span className="text-xl font-bold tracking-tight text-foreground hidden sm:inline-block">
+                NutriEnte Nutrição
+              </span>
+            </div>
           </div>
           <div className="flex gap-2">
             <Button

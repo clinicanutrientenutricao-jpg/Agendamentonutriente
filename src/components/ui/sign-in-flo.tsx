@@ -221,16 +221,20 @@ export const SignInFlo: React.FC<SignInFloProps> = ({ onSubmit, isSubmitting }) 
       
       <div className="relative z-10 w-full max-w-md">
         <div className="bg-zinc-900/80 backdrop-blur-xl border border-zinc-800 rounded-2xl p-8 shadow-2xl">
-          {/* Logo com círculo branco */}
+          {/* Logo com container branco estilizado */}
           <div className="text-center mb-8">
             <div className="inline-flex items-center justify-center relative mb-6">
-              {/* Círculo branco estilizado atrás da logo */}
-              <div className="absolute inset-0 bg-white rounded-full blur-xl opacity-80 scale-110" />
-              <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-100 rounded-full opacity-90" />
+              {/* Brilho suave atrás da logo */}
+              <div className="absolute inset-0 bg-white/25 rounded-3xl blur-xl scale-110" />
               
-              {/* Logo */}
-              <div className="relative px-4 py-3 flex items-center justify-center rounded-2xl bg-white drop-shadow-lg">
-                <span className="text-base font-bold tracking-tight text-zinc-900 text-center">NutriEnte Nutrição</span>
+              {/* Container da Logo */}
+              <div className="relative px-6 py-4 flex items-center justify-center rounded-2xl bg-white shadow-xl">
+                <img
+                  src="https://s3.alvimautomacoes.com/imagens/Logos/logo%20-%20co%CC%81pia.png"
+                  alt="NutriEnte Nutrição"
+                  className="h-14 w-auto max-w-[180px] object-contain"
+                  referrerPolicy="no-referrer"
+                />
               </div>
             </div>
             
