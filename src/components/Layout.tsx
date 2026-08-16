@@ -48,7 +48,7 @@ export const Layout = ({ children, showBackButton = false, showAdminButton = fal
               </Button>
             )}
             <span className="text-2xl font-bold tracking-tight text-foreground">
-              NutriElite
+              NutriEnte Nutrição
             </span>
           </div>
           <div className="flex gap-2">

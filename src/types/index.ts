@@ -18,11 +18,13 @@ export interface FormularioConsulta {
   email: string;
   data: string;
   horario: string;
+  profissional: string;
   observacao: string;
 }
 
 export interface FormularioAudio {
   nome: string;
   telefone: string;
+  profissional: string;
   mensagem: string;
 }

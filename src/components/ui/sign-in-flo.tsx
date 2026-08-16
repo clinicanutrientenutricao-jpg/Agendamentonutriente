@@ -229,8 +229,8 @@ export const SignInFlo: React.FC<SignInFloProps> = ({ onSubmit, isSubmitting }) 
               <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-100 rounded-full opacity-90" />
               
               {/* Logo */}
-              <div className="relative w-24 h-24 flex items-center justify-center rounded-full bg-white drop-shadow-lg">
-                <span className="text-lg font-bold tracking-tight text-zinc-900">NutriElite</span>
+              <div className="relative px-4 py-3 flex items-center justify-center rounded-2xl bg-white drop-shadow-lg">
+                <span className="text-base font-bold tracking-tight text-zinc-900 text-center">NutriEnte Nutrição</span>
               </div>
             </div>
             

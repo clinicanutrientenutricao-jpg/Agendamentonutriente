@@ -5,6 +5,13 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { PhoneInput } from '@/components/PhoneInput';
 import { PatientSearch } from '@/components/PatientSearch';
 import { Mic, CheckCircle2 } from 'lucide-react';
@@ -26,6 +33,7 @@ const EnviarAudio = () => {
   const [formData, setFormData] = useState<FormularioAudio>({
     nome: '',
     telefone: '+55',
+    profissional: 'Felipe Alvim',
     mensagem: '',
   });
 
@@ -73,6 +81,7 @@ const EnviarAudio = () => {
         const url = new URL(webhookData.url);
         url.searchParams.append('nome', formData.nome);
         url.searchParams.append('telefone', formData.telefone);
+        url.searchParams.append('profissional', formData.profissional);
         url.searchParams.append('mensagem', formData.mensagem);
 
         await fetch(url.toString(), {
@@ -88,6 +97,7 @@ const EnviarAudio = () => {
       setFormData({
         nome: '',
         telefone: '+55',
+        profissional: 'Felipe Alvim',
         mensagem: '',
       });
     } catch (error) {
@@ -138,6 +148,22 @@ const EnviarAudio = () => {
             />
 
             <div className="space-y-2">
+              <Label htmlFor="profissional">Qual profissional vai atender</Label>
+              <Select
+                value={formData.profissional}
+                onValueChange={(value) => setFormData({ ...formData, profissional: value })}
+              >
+                <SelectTrigger id="profissional" className="h-11 bg-background border-input">
+                  <SelectValue placeholder="Selecione o profissional" />
+                </SelectTrigger>
+                <SelectContent className="bg-popover z-50">
+                  <SelectItem value="Felipe Alvim">Felipe Alvim</SelectItem>
+                  <SelectItem value="Carolina Rosa">Carolina Rosa</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div className="space-y-2">
               <Label htmlFor="mensagem">Mensagem</Label>
               <Textarea
                 id="mensagem"
@@ -179,6 +205,9 @@ const EnviarAudio = () => {
               
               <div className="font-semibold text-muted-foreground">Telefone:</div>
               <div className="text-foreground">{formData.telefone}</div>
+
+              <div className="font-semibold text-muted-foreground">Profissional:</div>
+              <div className="text-foreground">{formData.profissional}</div>
             </div>
             
             <div className="pt-2 border-t">

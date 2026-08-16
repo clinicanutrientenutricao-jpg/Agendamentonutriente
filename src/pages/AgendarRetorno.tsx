@@ -5,6 +5,13 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { PhoneInput } from '@/components/PhoneInput';
 import { PatientSearch } from '@/components/PatientSearch';
 import { RotateCcw, CheckCircle2 } from 'lucide-react';
@@ -31,6 +38,7 @@ const AgendarRetorno = () => {
     email: '',
     data: '',
     horario: '',
+    profissional: 'Felipe Alvim',
     observacao: '',
   });
 
@@ -96,11 +104,13 @@ const AgendarRetorno = () => {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
+            tipo: formData.tipo,
             nome: formData.nome,
             sobrenome: formData.sobrenome,
             telefone: formData.telefone,
             data: formData.data,
             horario: formData.horario,
+            profissional: formData.profissional,
             observacao: formData.observacao,
           }),
         }).catch(console.error);
@@ -119,6 +129,7 @@ const AgendarRetorno = () => {
         email: '',
         data: '',
         horario: '',
+        profissional: 'Felipe Alvim',
         observacao: '',
       });
     } catch (error) {
@@ -207,6 +218,22 @@ const AgendarRetorno = () => {
             </div>
 
             <div className="space-y-2">
+              <Label htmlFor="profissional">Qual profissional vai atender</Label>
+              <Select
+                value={formData.profissional}
+                onValueChange={(value) => setFormData({ ...formData, profissional: value })}
+              >
+                <SelectTrigger id="profissional" className="h-11 bg-background border-input">
+                  <SelectValue placeholder="Selecione o profissional" />
+                </SelectTrigger>
+                <SelectContent className="bg-popover z-50">
+                  <SelectItem value="Felipe Alvim">Felipe Alvim</SelectItem>
+                  <SelectItem value="Carolina Rosa">Carolina Rosa</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div className="space-y-2">
               <Label htmlFor="observacao">Observação</Label>
               <Textarea
                 id="observacao"
@@ -247,6 +274,9 @@ const AgendarRetorno = () => {
               
               <div className="font-semibold text-muted-foreground">Telefone:</div>
               <div className="text-foreground">{formData.telefone}</div>
+
+              <div className="font-semibold text-muted-foreground">Profissional:</div>
+              <div className="text-foreground">{formData.profissional}</div>
               
               <div className="font-semibold text-muted-foreground">Data:</div>
               <div className="text-foreground">{formData.data ? new Date(formData.data + 'T00:00:00').toLocaleDateString('pt-BR') : ''}</div>

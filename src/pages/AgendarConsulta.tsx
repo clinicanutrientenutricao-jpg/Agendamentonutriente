@@ -38,6 +38,7 @@ const AgendarConsulta = () => {
     email: '',
     data: '',
     horario: '',
+    profissional: 'Felipe Alvim',
     observacao: '',
   });
 
@@ -110,6 +111,7 @@ const AgendarConsulta = () => {
             email: formData.email,
             data: formData.data,
             horario: formData.horario,
+            profissional: formData.profissional,
             observacao: formData.observacao,
           }),
         }).catch(console.error);
@@ -131,6 +133,7 @@ const AgendarConsulta = () => {
         email: '',
         data: '',
         horario: '',
+        profissional: 'Felipe Alvim',
         observacao: '',
       });
     } catch (error) {
@@ -248,6 +251,22 @@ const AgendarConsulta = () => {
             </div>
 
             <div className="space-y-2">
+              <Label htmlFor="profissional">Qual profissional vai atender</Label>
+              <Select
+                value={formData.profissional}
+                onValueChange={(value) => setFormData({ ...formData, profissional: value })}
+              >
+                <SelectTrigger id="profissional" className="h-11 bg-background border-input">
+                  <SelectValue placeholder="Selecione o profissional" />
+                </SelectTrigger>
+                <SelectContent className="bg-popover z-50">
+                  <SelectItem value="Felipe Alvim">Felipe Alvim</SelectItem>
+                  <SelectItem value="Carolina Rosa">Carolina Rosa</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div className="space-y-2">
               <Label htmlFor="observacao">Observação</Label>
               <Textarea
                 id="observacao"
@@ -291,6 +310,9 @@ const AgendarConsulta = () => {
 
               <div className="font-semibold text-muted-foreground">Email:</div>
               <div className="text-foreground">{formData.email}</div>
+
+              <div className="font-semibold text-muted-foreground">Profissional:</div>
+              <div className="text-foreground">{formData.profissional}</div>
 
               <div className="font-semibold text-muted-foreground">Data:</div>
               <div className="text-foreground">{formData.data ? new Date(formData.data + 'T00:00:00').toLocaleDateString('pt-BR') : ''}</div>
